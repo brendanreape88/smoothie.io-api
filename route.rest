@@ -1,1 +1,62 @@
-GET http://localhost:8000/
+GET http://localhost:8000/api/ingredients
+//works!
+###
+
+POST http://localhost:8000/api/ingredients
+content-type: application/json
+
+{
+    "title": "rice milk",
+    "category": "liquids"
+}
+//works!
+###
+
+GET http://localhost:8000/api/recipes 
+//works!
+###
+
+GET http://localhost:8000/api/recipes/3
+//works!
+###
+
+GET http://localhost:8000/api/recipes/2/reviews
+//works!
+###
+
+POST http://localhost:8000/api/users/recipes
+content-type: application/json
+
+{
+    "smoothie_name": "Test Smoothie",
+    "smoothie_pic": "no picture",
+    "ingredients": [
+
+        {"quantity": "1", "units": "cup", "ingredient_id": 35},
+        {"quantity": "1", "units": "whole", "ingredient_id": 33},
+        {"quantity": "3", "units": "leaves", "ingredient_id": 60}
+
+    ]
+}
+//works!
+###
+
+POST http://localhost:8000/api/users/reviews
+content-type: application/json
+
+{
+    "recipe_id": 10,
+    "headline": "Test Headline",
+    "review": "test review"
+}
+//works!
+###
+
+POST http://localhost:8000/api/users/favorites
+content-type: application/json
+
+{
+    "user_id": "1",
+    "recipe_id": "3"
+}
+//works!
