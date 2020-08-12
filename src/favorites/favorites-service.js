@@ -30,7 +30,7 @@ const FavoritesService = {
     addRecipeToFavorite(db, recipe_id, user_id) {
         return db
           .from('favorites')
-          .select('favorites.recipe_id', 'favorites.user_id')
+          .select('favorites.recipe_id', {fav_user_id: 'favorites.user_id'})
           .where({'favorites.recipe_id': recipe_id, 'favorites.user_id': user_id})
           .join('recipes', 'recipes.id', '=', 'favorites.recipe_id')
           .select('*')

@@ -14,7 +14,7 @@ reviewsRouter
     for (const [key, value] of Object.entries(newReview))
       if (value == null)
         return res.status(400).json({
-          error: `Missing '${key}' in request body`
+          error: { message: `Missing '${key}' in request body` }
         })
 
     ReviewsService.insertReview(

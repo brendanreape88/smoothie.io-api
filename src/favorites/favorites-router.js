@@ -33,16 +33,26 @@ favoritesRouter
             return FavoritesService.addRecipeToFavorite(req.app.get('db'), results[0].recipe_id, results[0].user_id)
             .then(favorite => {
               console.log(favorite)
-              return res.json({message: 'success', favorite: favorite[0]})
+              let {fav_user_id: _, ...newFavorite} = favorite[0];
+              newFavorite.user_id = favorite[0].fav_user_id;
+              return res.status(201).json({message: 'success', favorite: newFavorite})
+            })
+            .catch(error => {
+              console.log(error);
+              res.status(500).json({message: error});
             })
         })
       } else {
         return FavoritesService.deleteFavorite(req.app.get('db'), recipeId, userId)
         .then(
-            () => res.json({message: 'success'})
+            () => res.status(201).json({message: 'success'})
         )
       }
     })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json({message: error});
+      })
   })
 
 module.exports = favoritesRouter

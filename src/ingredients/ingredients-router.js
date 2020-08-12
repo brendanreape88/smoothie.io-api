@@ -21,7 +21,7 @@ ingredientsRouter
         for (const [key, value] of Object.entries(newIngredient))
           if (value == null)
             return res.status(400).json({
-              error: `Missing '${key}' in request body`
+              error: { message: `Missing '${key}' in request body` }
             })
     
         IngredientsService.insertIngredient(
