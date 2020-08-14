@@ -1,26 +1,75 @@
-# Express Boilerplate!
+Smoothie.io’s API makes it easy to work with our database.
 
-This is a boilerplate project used for starting new projects!
+Endpoint: https://damp-forest-34882.herokuapp.com/api
 
-## Set up
+---
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+Users:
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+Send a GET request to /users to get all of our users.
 
-## Scripts
+---
 
-Start the application `npm start`
+Ingredients:
 
-Start nodemon for the application `npm run dev`
+Send a GET request to /ingredients to get all of our ingredients.
 
-Run the tests `npm test`
+Send a POST request to /ingredients to insert a new ingredient into the database. Please use the format below:
 
-## Deploying
+{
+"title": “rice milk”,
+"category": “liquids”
+}
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+---
+
+Recipes:
+
+Send a GET request to /recipes to get all of our recipes.
+
+Send a GET request to /recipes/:recipe_id to get a particular recipe.
+
+Send a POST request to /users/recipes to post a new recipe to our database. Please use the format below:
+
+{
+"smoothie_name": "Smoothie Name",
+"smoothie_pic": "Picture URL",
+"user_id": "10",
+
+    "ingredients": [
+
+            {"quantity": "1", "units": "cup", "ingredient_id": 35},
+            {"quantity": "1", "units": "whole", "ingredient_id": 33},
+            {"quantity": "3", "units": "leaves", "ingredient_id": 60}
+
+        ]
+
+}
+
+---
+
+Reviews:
+
+Send a GET request to /recipes/:recipe_id/reviews to get all of the reviews for a particular recipe.
+
+Send a POST request to /users/reviews to post a new review for a particular recipe. Please use the format below:
+
+{
+"recipe_id": "10",
+"user_id": "10",
+"headline": "Review Headline",
+"review": "Wow, what an amazing smoothie!"
+}
+
+---
+
+Favorites:
+
+Send a GET request to /users/:user_id/favorites to get all the favorites for a particular user.
+
+Send a POST request to /users/favorites to add a new favorite to the database. Please use the format below:
+
+{
+"user_id": "1",
+"recipe_id": "3"
+}
