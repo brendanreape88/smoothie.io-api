@@ -1,16 +1,16 @@
-Smoothie.io’s API makes it easy to work with our database.
+# Smoothie.io
 
-Endpoint: https://damp-forest-34882.herokuapp.com/api
+**Live:** https://damp-forest-34882.herokuapp.com/
 
----
+**Endpoint:** https://damp-forest-34882.herokuapp.com/api
 
-Users:
+### Users:
 
 Send a GET request to /users to get all of our users.
 
 ---
 
-Ingredients:
+### Ingredients:
 
 Send a GET request to /ingredients to get all of our ingredients.
 
@@ -23,7 +23,7 @@ Send a POST request to /ingredients to insert a new ingredient into the database
 
 ---
 
-Recipes:
+### Recipes:
 
 Send a GET request to /recipes to get all of our recipes.
 
@@ -48,7 +48,7 @@ Send a POST request to /users/recipes to post a new recipe to our database. Plea
 
 ---
 
-Reviews:
+### Reviews:
 
 Send a GET request to /recipes/:recipe_id/reviews to get all of the reviews for a particular recipe.
 
@@ -63,7 +63,7 @@ Send a POST request to /users/reviews to post a new review for a particular reci
 
 ---
 
-Favorites:
+### Favorites:
 
 Send a GET request to /users/:user_id/favorites to get all the favorites for a particular user.
 
