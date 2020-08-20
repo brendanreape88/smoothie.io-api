@@ -55,18 +55,20 @@ describe("Reviews Endpoints", function () {
           {
             headline: "Test Headline",
             review: "Test Review.",
-            recipe_id: 1,
             user_id: 1,
+            user_name: "Test User",
+            user_pic: "Test Picture",
           },
           {
             headline: "Another Test Headline",
             review: "Another Test Review.",
-            recipe_id: 1,
             user_id: 2,
+            user_name: "Another Test User",
+            user_pic: "Another Test Picture",
           },
         ];
         return supertest(app)
-          .get(`api/recipes/${recipe_id}/reviews`)
+          .get(`/api/recipes/${recipe_id}/reviews`)
           .expect(200, exprectedReviews);
       });
     });

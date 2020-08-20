@@ -92,7 +92,6 @@ describe("Favorites Endpoints", function () {
         .send(newFavorite)
         .expect(201)
         .expect((res) => {
-          console.log("###############################", res.body);
           expect(res.body.favorite.recipe_id).to.eql(newFavorite.recipe_id);
           expect(res.body.favorite.user_id).to.eql(newFavorite.user_id);
         })

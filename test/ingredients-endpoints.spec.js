@@ -60,10 +60,8 @@ describe("Ingredients Endpoints", function () {
         .send(newIngredient)
         .expect(201)
         .expect((res) => {
-          console.log("#########################", res.body);
           expect(res.body[0].title).to.eql(newIngredient.title);
           expect(res.body[0].category).to.eql(newIngredient.category);
-          //expect(actual).to.eql(expected)
         })
         .then((postRes) =>
           supertest(app).get(`/api/ingredients`).expect(postRes.body)

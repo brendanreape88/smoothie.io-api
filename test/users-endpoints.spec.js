@@ -4,7 +4,7 @@ const helpers = require("./test-helpers");
 const supertest = require("supertest");
 const { expect } = require("chai");
 
-describe("Favorites Endpoints", function () {
+describe("Users Endpoints", function () {
   let db;
 
   before("make knex instance", () => {
@@ -41,7 +41,7 @@ describe("Favorites Endpoints", function () {
       it("responds with 200 and the data for the user", () => {
         const user_id = 1;
         return supertest(app)
-          .get(`api/users/${user_id}/favorites`)
+          .get(`/api/users/${user_id}/favorites`)
           .expect(200, []);
       });
     });

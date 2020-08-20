@@ -79,7 +79,7 @@ const RecipesService = {
       .select("headline", "review")
       .where("reviews.recipe_id", id)
       .join("users", "users.id", "=", "reviews.user_id")
-      .select("user_name", "user_pic");
+      .select("user_name", "user_pic", "user_id");
   },
 
   insertRecipe(db, newRecipe, newRecipeIngredients) {
