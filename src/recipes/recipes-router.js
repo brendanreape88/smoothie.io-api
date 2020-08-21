@@ -36,8 +36,13 @@ recipesRouter
   });
 
 recipesRouter.route("/users/recipes").post(jsonBodyParser, (req, res, next) => {
-  const { id, smoothie_name, smoothie_pic, ingredients, user_id } = req.body;
-  const newRecipe = { id, smoothie_name, smoothie_pic, user_id };
+  const {
+    /*id,*/ smoothie_name,
+    smoothie_pic,
+    ingredients,
+    user_id,
+  } = req.body;
+  const newRecipe = { /*id,*/ smoothie_name, smoothie_pic, user_id };
   const newRecipeIngredients = ingredients;
 
   for (const [key, value] of Object.entries({
